@@ -6,147 +6,173 @@
     <title>Análisis de Competencia - Salud</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* SCROLL HORIZONTAL (clave sin romper nada) */
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            min-width: 1100px; /* fuerza el scroll si no entra */
+        }
+    </style>
 </head>
 <body>
 
-    <canvas id="bg-canvas"></canvas>
-
+<canvas id="bg-canvas"></canvas>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 
-    <div class="bg-glow blob-1"></div>
-    <div class="bg-glow blob-2"></div>
+<div class="bg-glow blob-1"></div>
+<div class="bg-glow blob-2"></div>
 
-    <header class="header">
-        <div class="header-content">
-            <span class="badge-accent">Investigación UX/UI</span>
-            <h1>Análisis de Competencia: <span class="text-gradient">Sector Salud</span></h1>
-            <p>Comparativa interactiva de obras sociales y prepagas</p>
+<header class="header">
+    <div class="header-content">
+        <span class="badge-accent">Investigación UX/UI</span>
+        <h1>Análisis de Competencia: <span class="text-gradient">Sector Salud</span></h1>
+        <p>Comparativa interactiva de obras sociales y prepagas</p>
+    </div>
+</header>
+
+<main class="main-container">
+    <section class="controls glass-panel">
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Buscar organización o dato...">
         </div>
-    </header>
 
-    <main class="main-container">
-        <section class="controls glass-panel">
-            <div class="search-box">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <input type="text" id="search" placeholder="Buscar organización o dato...">
-            </div>
-            
-            <div class="filter-box">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
-                <select id="filter">
-                    <option value="all">Todos los ámbitos</option>
-                    <option value="privada">Privadas</option>
-                    <option value="publica">Públicas</option>
-                </select>
-            </div>
-        </section>
-
-        <div class="table-wrapper glass-panel">
-            <table id="table">
-                <thead>
-                    <tr>
-                        <th title="Click para ordenar">Organización ↕</th>
-                        <th title="Click para ordenar">Ámbito ↕</th>
-                        <th>Link web</th>
-                        <th>Diferencial Competitivo</th>
-                        <th>Audiencias</th>
-                        <th>Tendencias del área</th>
-                        <th>Análisis visual (UX)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr data-type="privada">
-                        <td class="org-name"><strong>OSDE</strong></td>
-                        <td><span class="badge privada">Privada</span></td>
-                        <td><a href="https://www.osde.com.ar" target="_blank" class="web-link">osde.com.ar ↗</a></td>
-                        <td>Red prestadora extensa, app con credencial QR</td>
-                        <td>Valoran red médica, críticas a autorizaciones</td>
-                        <td>Autogestión digital, chatbot</td>
-                        <td class="ux-analysis">
-                            <ul>
-                                <li>Azul institucional → confianza.</li>
-                                <li>Navegación clara por usuario.</li>
-                                <li>Tono institucional pero cercano.</li>
-                            </ul>
-                        </td>
-                    </tr>
-
-                    <tr data-type="privada">
-                        <td class="org-name"><strong>Swiss Medical</strong></td>
-                        <td><span class="badge privada">Privada</span></td>
-                        <td><a href="https://www.swissmedical.com.ar" target="_blank" class="web-link">swissmedical.com.ar ↗</a></td>
-                        <td>Centros médicos propios premium</td>
-                        <td>Valoran calidad, críticas al costo</td>
-                        <td>Historia clínica digital, turnos online</td>
-                        <td class="ux-analysis">
-                            <ul>
-                                <li>Verde oscuro → prestigio.</li>
-                                <li>UX ordenada.</li>
-                                <li>Tono profesional y frío.</li>
-                            </ul>
-                        </td>
-                    </tr>
-
-                    <tr data-type="privada">
-                        <td class="org-name"><strong>Galeno</strong></td>
-                        <td><span class="badge privada">Privada</span></td>
-                        <td><a href="https://www.galeno.com.ar" target="_blank" class="web-link">galeno.com.ar ↗</a></td>
-                        <td>Planes accesibles</td>
-                        <td>Valoran cobertura, críticas a reintegros</td>
-                        <td>Telemedicina, app</td>
-                        <td class="ux-analysis">
-                            <ul>
-                                <li>Azul + naranja → dinámico.</li>
-                                <li>UX funcional.</li>
-                                <li>Tono cercano.</li>
-                            </ul>
-                        </td>
-                    </tr>
-
-                    <tr data-type="publica">
-                        <td class="org-name"><strong>PAMI</strong></td>
-                        <td><span class="badge publica">Pública</span></td>
-                        <td><a href="https://www.pami.org.ar" target="_blank" class="web-link">pami.org.ar ↗</a></td>
-                        <td>Cobertura masiva</td>
-                        <td>Adultos mayores, críticas UX</td>
-                        <td>Digitalización de trámites</td>
-                        <td class="ux-analysis">
-                            <ul>
-                                <li>Verde institucional.</li>
-                                <li>UX compleja.</li>
-                                <li>Tono burocrático.</li>
-                            </ul>
-                        </td>
-                    </tr>
-
-                    <tr data-type="publica">
-                        <td class="org-name"><strong>IOMA</strong></td>
-                        <td><span class="badge publica">Pública</span></td>
-                        <td><a href="https://www.ioma.gba.gov.ar" target="_blank" class="web-link">ioma.gba.gov.ar ↗</a></td>
-                        <td>Cobertura estatal obligatoria</td>
-                        <td>Quejas por dificultad de uso</td>
-                        <td>Trámites online</td>
-                        <td class="ux-analysis">
-                            <ul>
-                                <li>Azul + amarillo institucional.</li>
-                                <li>UX rígida.</li>
-                                <li>Tono burocrático fuerte.</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <div id="no-results" class="no-results hidden">
-                <p>No se encontraron resultados para tu búsqueda.</p>
-            </div>
+        <div class="filter-box">
+            <select id="filter">
+                <option value="all">Todos los ámbitos</option>
+                <option value="privada">Privadas</option>
+                <option value="publica">Públicas</option>
+            </select>
         </div>
-    </main>
+    </section>
 
-    <footer class="footer glass-panel">
-        <p>⚠️ Trabajo académico basado en análisis UX/UI.</p>
-    </footer>
+    <div class="table-wrapper glass-panel">
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>Organización</th>
+                    <th>Ámbito</th>
+                    <th>Link web</th>
+                    <th>Diferencial Competitivo</th>
+                    <th>Audiencias</th>
+                    <th>Tendencias del área</th>
+                    <th>Análisis visual (UX)</th>
+                </tr>
+            </thead>
 
-    <script src="script.js"></script>
+            <tbody>
+
+                <!-- OSDE -->
+                <tr data-type="privada">
+                    <td><strong>OSDE</strong></td>
+                    <td><span class="badge privada">Privada</span></td>
+                    <td><a href="https://www.osde.com.ar" class="web-link" target="_blank">osde.com.ar↗</a></td>
+                    <td>Fuerte posicionamiento de marca + amplia red prestadora</td>
+                    <td>Adultos de ingresos medios-altos, familias, profesionales</td>
+                    <td>Autogestión digital, apps móviles, atención online</td>
+                    <td>
+                        <ul>
+                            <li>Uso del azul institucional que transmite confianza.</li>
+                            <li>Jerarquía clara orientada a tareas frecuentes.</li>
+                            <li>Buen enfoque en autogestión del usuario.</li>
+                            <li>Sobrecarga de contenido en algunas vistas.</li>
+                            <li>Optimizado para usuarios frecuentes.</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- SWISS -->
+                <tr data-type="privada">
+                    <td><strong>Swiss Medical</strong></td>
+                    <td><span class="badge privada">Privada</span></td>
+                    <td><a href="https://www.swissmedical.com.ar" class="web-link" target="_blank">swissmedical.com.ar↗</a></td>
+                    <td>Infraestructura propia + percepción premium</td>
+                    <td>Segmento alto, empresas, usuarios exigentes</td>
+                    <td>Historia clínica digital, turnos online</td>
+                    <td>
+                        <ul>
+                            <li>Paleta sobria que refuerza posicionamiento premium.</li>
+                            <li>Diseño limpio con buen uso del espacio.</li>
+                            <li>Jerarquía clara pero más institucional que funcional.</li>
+                            <li>Accesos clave no siempre visibles.</li>
+                            <li>Más estética que eficiencia en algunos flujos.</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- GALENO -->
+                <tr data-type="privada">
+                    <td><strong>Galeno</strong></td>
+                    <td><span class="badge privada">Privada</span></td>
+                    <td><a href="https://www.galeno.com.ar" class="web-link" target="_blank">galeno.com.ar↗</a></td>
+                    <td>Relación precio-cobertura competitiva</td>
+                    <td>Clase media, usuarios sensibles al precio</td>
+                    <td>Telemedicina, digitalización de servicios</td>
+                    <td>
+                        <ul>
+                            <li>Uso de colores dinámicos (azul/naranja).</li>
+                            <li>Estructura simple y comprensible.</li>
+                            <li>Menor carga visual que competidores.</li>
+                            <li>Falta jerarquía en elementos importantes.</li>
+                            <li>Experiencia funcional pero poco diferenciada.</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- PAMI -->
+                <tr data-type="publica">
+                    <td><strong>PAMI</strong></td>
+                    <td><span class="badge publica">Pública</span></td>
+                    <td><a href="https://www.pami.org.ar" class="web-link" target="_blank">pami.org.ar↗</a></td>
+                    <td>Cobertura masiva para adultos mayores</td>
+                    <td>Jubilados y adultos mayores</td>
+                    <td>Digitalización de trámites estatales</td>
+                    <td>
+                        <ul>
+                            <li>Diseño institucional con alta carga visual.</li>
+                            <li>Exceso de información en pantalla.</li>
+                            <li>Navegación poco intuitiva.</li>
+                            <li>No adaptado al perfil del usuario.</li>
+                            <li>Problemas de accesibilidad.</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- IOMA -->
+                <tr data-type="publica">
+                    <td><strong>IOMA</strong></td>
+                    <td><span class="badge publica">Pública</span></td>
+                    <td><a href="https://www.ioma.gba.gov.ar" class="web-link" target="_blank">ioma.gba.gov.ar↗</a></td>
+                    <td>Cobertura obligatoria estatal</td>
+                    <td>Empleados públicos</td>
+                    <td>Trámites online</td>
+                    <td>
+                        <ul>
+                            <li>Diseño rígido y poco moderno.</li>
+                            <li>Falta de jerarquía visual.</li>
+                            <li>Navegación fragmentada.</li>
+                            <li>Enfoque en sistema, no usuario.</li>
+                            <li>Alta fricción en tareas simples.</li>
+                        </ul>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div id="no-results" class="no-results hidden">
+            <p>No se encontraron resultados.</p>
+        </div>
+    </div>
+</main>
+
+<footer class="footer glass-panel">
+    <p>⚠️ Análisis académico UX/UI aplicado a servicios digitales.</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
