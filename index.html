@@ -3,176 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análisis de Competencia - Salud</title>
+    <title>Análisis de Competencia - Transporte Educativo</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* SCROLL HORIZONTAL (clave sin romper nada) */
         .table-wrapper {
             overflow-x: auto;
         }
 
         table {
-            min-width: 1100px; /* fuerza el scroll si no entra */
+            min-width: 1300px;
         }
     </style>
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <canvas id="bg-canvas"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 
-<div class="bg-glow blob-1"></div>
-<div class="bg-glow blob-2"></div>
+    <div class="bg-glow blob-1"></div>
+    <div class="bg-glow blob-2"></div>
 
-<header class="header">
-    <div class="header-content">
-        <span class="badge-accent">Investigación UX/UI</span>
-        <h1>Análisis de Competencia: <span class="text-gradient">Sector Salud</span></h1>
-        <p>Comparativa interactiva de obras sociales y prepagas</p>
-    </div>
-</header>
+    <header class="header">
+        <div class="header-content">
+            <span class="badge-accent">Investigación UX/UI</span>
+            <h1>Análisis de Competencia: <span class="text-gradient">Plataformas de Beneficios y Transporte</span></h1>
+            <p>Comparativa de experiencias digitales aplicables al rediseño del Boleto Educativo</p>
+        </div>
+    </header>
 
-<main class="main-container">
-    <section class="controls glass-panel">
-        <div class="search-box">
-            <input type="text" id="search" placeholder="Buscar organización o dato...">
+    <main class="main-container">
+        <section class="controls glass-panel">
+            <div class="search-box">
+                <input type="text" id="search" placeholder="Buscar organización o dato...">
+            </div>
+
+            <div class="filter-box">
+                <select id="filter">
+                    <option value="all">Todos los ámbitos</option>
+                    <option value="privada">Privadas</option>
+                    <option value="publica">Públicas</option>
+                </select>
+            </div>
+        </section>
+
+        <div class="table-wrapper glass-panel">
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>Organización</th>
+                        <th>Ámbito</th>
+                        <th>Link web</th>
+                        <th>Diferencial Competitivo</th>
+                        <th>Audiencias</th>
+                        <th>Tendencias del área</th>
+                        <th>Análisis visual (UX)</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <!-- TFL -->
+                    <tr data-type="publica">
+                        <td><strong>Transport for London (TfL)</strong></td>
+                        <td><span class="badge publica">Pública</span></td>
+                        <td><a href="https://tfl.gov.uk" class="web-link" target="_blank">tfl.gov.uk ↗</a></td>
+                        <td>Planificador de viajes centralizado e integración total del ecosistema de transporte</td>
+                        <td>Usuarios urbanos, turistas, población general</td>
+                        <td>Centralización de servicios, accesibilidad, movilidad inteligente</td>
+                        <td>
+                            <ul>
+                                <li>Colores institucionales fuertes con alto contraste.</li>
+                                <li>Diseño muy alineado a identidad del transporte.</li>
+                                <li>Jerarquía clara pero navegación profunda.</li>
+                                <li>Puede resultar confuso por exceso de opciones.</li>
+                                <li>UX útil pero poco amigable para usuarios nuevos.</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <!-- GRATIS PARA ESTUDIANTES -->
+                    <tr data-type="privada">
+                        <td><strong>Gratis para Estudiantes</strong></td>
+                        <td><span class="badge privada">Privada</span></td>
+                        <td><a href="https://gratisparaestudiantes.app" class="web-link" target="_blank">gratisparaestudiantes.app ↗</a></td>
+                        <td>Centralización simple y rápida de beneficios estudiantiles</td>
+                        <td>Estudiantes jóvenes y usuarios digitales</td>
+                        <td>Modelo catálogo, UX minimalista, acceso directo</td>
+                        <td>
+                            <ul>
+                                <li>Diseño moderno tipo startup.</li>
+                                <li>Cards escaneables con CTA claros.</li>
+                                <li>Navegación casi sin fricción.</li>
+                                <li>Visual minimalista y ordenado.</li>
+                                <li>Experiencia rápida y altamente positiva.</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <!-- STUDENT BEANS -->
+                    <tr data-type="privada">
+                        <td><strong>Student Beans</strong></td>
+                        <td><span class="badge privada">Privada</span></td>
+                        <td><a href="https://www.studentbeans.com" class="web-link" target="_blank">studentbeans.com ↗</a></td>
+                        <td>Validación estudiantil digital + acceso inmediato a descuentos</td>
+                        <td>Estudiantes digitales, consumidores online</td>
+                        <td>Personalización, conversión, marketplace educativo</td>
+                        <td>
+                            <ul>
+                                <li>Estética moderna tipo e-commerce.</li>
+                                <li>Uso fuerte de banners e imágenes.</li>
+                                <li>Flujos orientados a conversión.</li>
+                                <li>Interacción dinámica y personalizada.</li>
+                                <li>UX optimizada para acción inmediata.</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <!-- ARGENTINA GOB -->
+                    <tr data-type="publica">
+                        <td><strong>Argentina.gob.ar</strong></td>
+                        <td><span class="badge publica">Pública</span></td>
+                        <td><a href="https://www.argentina.gob.ar/tema/estudiar/programas-y-becas" class="web-link" target="_blank">argentina.gob.ar ↗</a></td>
+                        <td>Centralización estatal de programas educativos</td>
+                        <td>Ciudadanos, estudiantes, usuarios públicos</td>
+                        <td>Digitalización de trámites estatales</td>
+                        <td>
+                            <ul>
+                                <li>Diseño sobrio e institucional.</li>
+                                <li>Predominio excesivo de texto.</li>
+                                <li>Navegación fragmentada entre páginas.</li>
+                                <li>Baja jerarquía visual.</li>
+                                <li>Experiencia burocrática y confusa.</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <div id="no-results" class="no-results hidden">
+                <p>No se encontraron resultados.</p>
+            </div>
         </div>
 
-        <div class="filter-box">
-            <select id="filter">
-                <option value="all">Todos los ámbitos</option>
-                <option value="privada">Privadas</option>
-                <option value="publica">Públicas</option>
-            </select>
+        <div class="glass-panel" style="margin-top: 24px;">
+            <h2>Conclusión General</h2>
+            <p>
+                El análisis evidencia dos modelos claramente diferenciados.
+            </p>
+            <p>
+                <strong>Modelo estatal:</strong> prioriza información y formalidad, pero presenta experiencias complejas y poco centradas en el usuario.
+            </p>
+            <p>
+                <strong>Modelo privado:</strong> prioriza simplicidad, claridad visual y acceso inmediato a beneficios.
+            </p>
+            <p>
+                <strong>Insight para el proyecto:</strong> la oportunidad no está en agregar más información al sistema del Boleto Educativo, sino en reorganizarla, simplificarla y centralizarla para mejorar significativamente la experiencia del estudiante.
+            </p>
         </div>
-    </section>
+    </main>
 
-    <div class="table-wrapper glass-panel">
-        <table id="table">
-            <thead>
-                <tr>
-                    <th>Organización</th>
-                    <th>Ámbito</th>
-                    <th>Link web</th>
-                    <th>Diferencial Competitivo</th>
-                    <th>Audiencias</th>
-                    <th>Tendencias del área</th>
-                    <th>Análisis visual (UX)</th>
-                </tr>
-            </thead>
+    <footer class="footer glass-panel">
+        <p>⚠️ Análisis académico UX/UI aplicado al rediseño del sistema Boleto Educativo.</p>
+    </footer>
 
-            <tbody>
+    <script src="script.js"></script>
 
-                <!-- OSDE -->
-                <tr data-type="privada">
-                    <td><strong>OSDE</strong></td>
-                    <td><span class="badge privada">Privada</span></td>
-                    <td><a href="https://www.osde.com.ar" class="web-link" target="_blank">osde.com.ar↗</a></td>
-                    <td>Fuerte posicionamiento de marca + amplia red prestadora</td>
-                    <td>Adultos de ingresos medios-altos, familias, profesionales</td>
-                    <td>Autogestión digital, apps móviles, atención online</td>
-                    <td>
-                        <ul>
-                            <li>Uso del azul institucional que transmite confianza.</li>
-                            <li>Jerarquía clara orientada a tareas frecuentes.</li>
-                            <li>Buen enfoque en autogestión del usuario.</li>
-                            <li>Sobrecarga de contenido en algunas vistas.</li>
-                            <li>Optimizado para usuarios frecuentes.</li>
-                        </ul>
-                    </td>
-                </tr>
-
-                <!-- SWISS -->
-                <tr data-type="privada">
-                    <td><strong>Swiss Medical</strong></td>
-                    <td><span class="badge privada">Privada</span></td>
-                    <td><a href="https://www.swissmedical.com.ar" class="web-link" target="_blank">swissmedical.com.ar↗</a></td>
-                    <td>Infraestructura propia + percepción premium</td>
-                    <td>Segmento alto, empresas, usuarios exigentes</td>
-                    <td>Historia clínica digital, turnos online</td>
-                    <td>
-                        <ul>
-                            <li>Paleta sobria que refuerza posicionamiento premium.</li>
-                            <li>Diseño limpio con buen uso del espacio.</li>
-                            <li>Jerarquía clara pero más institucional que funcional.</li>
-                            <li>Accesos clave no siempre visibles.</li>
-                            <li>Más estética que eficiencia en algunos flujos.</li>
-                        </ul>
-                    </td>
-                </tr>
-
-                <!-- GALENO -->
-                <tr data-type="privada">
-                    <td><strong>Galeno</strong></td>
-                    <td><span class="badge privada">Privada</span></td>
-                    <td><a href="https://www.galeno.com.ar" class="web-link" target="_blank">galeno.com.ar↗</a></td>
-                    <td>Relación precio-cobertura competitiva</td>
-                    <td>Clase media, usuarios sensibles al precio</td>
-                    <td>Telemedicina, digitalización de servicios</td>
-                    <td>
-                        <ul>
-                            <li>Uso de colores dinámicos (azul/naranja).</li>
-                            <li>Estructura simple y comprensible.</li>
-                            <li>Menor carga visual que competidores.</li>
-                            <li>Falta jerarquía en elementos importantes.</li>
-                            <li>Experiencia funcional pero poco diferenciada.</li>
-                        </ul>
-                    </td>
-                </tr>
-
-                <!-- PAMI -->
-                <tr data-type="publica">
-                    <td><strong>PAMI</strong></td>
-                    <td><span class="badge publica">Pública</span></td>
-                    <td><a href="https://www.pami.org.ar" class="web-link" target="_blank">pami.org.ar↗</a></td>
-                    <td>Cobertura masiva para adultos mayores</td>
-                    <td>Jubilados y adultos mayores</td>
-                    <td>Digitalización de trámites estatales</td>
-                    <td>
-                        <ul>
-                            <li>Diseño institucional con alta carga visual.</li>
-                            <li>Exceso de información en pantalla.</li>
-                            <li>Navegación poco intuitiva.</li>
-                            <li>No adaptado al perfil del usuario.</li>
-                            <li>Problemas de accesibilidad.</li>
-                        </ul>
-                    </td>
-                </tr>
-
-                <!-- IOMA -->
-                <tr data-type="publica">
-                    <td><strong>IOMA</strong></td>
-                    <td><span class="badge publica">Pública</span></td>
-                    <td><a href="https://www.ioma.gba.gov.ar" class="web-link" target="_blank">ioma.gba.gov.ar↗</a></td>
-                    <td>Cobertura obligatoria estatal</td>
-                    <td>Empleados públicos</td>
-                    <td>Trámites online</td>
-                    <td>
-                        <ul>
-                            <li>Diseño rígido y poco moderno.</li>
-                            <li>Falta de jerarquía visual.</li>
-                            <li>Navegación fragmentada.</li>
-                            <li>Enfoque en sistema, no usuario.</li>
-                            <li>Alta fricción en tareas simples.</li>
-                        </ul>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-
-        <div id="no-results" class="no-results hidden">
-            <p>No se encontraron resultados.</p>
-        </div>
-    </div>
-</main>
-
-<footer class="footer glass-panel">
-    <p>⚠️ Análisis académico UX/UI aplicado a servicios digitales.</p>
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>
